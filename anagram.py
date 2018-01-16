@@ -9,19 +9,32 @@ def count_letters(word):
     return counts
 
 def anagram(a, b):
-    print("Anagramming %s" % a)
-    anagrams = []
-    letters_dict = count_letters(a.lower())
-    for word in b:
-        if len(word) == len(a) and letters_dict == count_letters(word):
-            anagrams.append(word.lower())
-    return anagrams if anagrams else ["No single word anagrams found"]        
+    if "?" in a:
+        newword = ""
+        wildcard_return = []
+        for l in a:
+            if l != "?":
+                newword = newword + l
+        for t in alphabet:
+            for l in anagram(newword + t, b):
+                if len(l) == len(newword + t):
+                    wildcard_return.append(l)
+        return wildcard_return
+    else:
+        anagrams = []
+        letters_dict = count_letters(a.lower())
+        for word in b:
+            if len(word) == len(a) and letters_dict == count_letters(word):
+                anagrams.append(word.lower())
+        return anagrams if anagrams else ["No single word anagrams found"]        
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 mydict = get_dictionary('words.txt')
 
 print("Single Word Anagrammer")
 
 word = input("Enter a string: ")
-
+        
 for anagram in anagram(word, mydict):
     print(anagram)
