@@ -19,7 +19,7 @@ def anagram(a, b):
             for l in anagram(newword + t, b):
                 if len(l) == len(newword + t):
                     wildcard_return.append(l)
-        return wildcard_return
+        return wildcard_return if wildcard_return else ["No single word anagrams found"]
     else:
         anagrams = []
         letters_dict = count_letters(a.lower())
