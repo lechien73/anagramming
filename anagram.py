@@ -33,7 +33,8 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 mydict = get_dictionary('words.txt')
 
 print("Single Word Anagrammer")
-print("You can use one question mark (?) as a wildcard. Additional wildcards will be ignored.")
+print("You can use one question mark (?) as a wildcard.")
+print("Additional wildcards will be ignored.")
 print("")
 
 word = input("Enter a string: ")
