@@ -11,8 +11,9 @@ def count_letters(word):
 def anagram(a, b):
     print("Anagramming %s" % a)
     anagrams = []
+    letters_dict = count_letters(a.lower())
     for word in b:
-        if len(word) == len(a) and count_letters(a.lower()) == count_letters(word):
+        if len(word) == len(a) and letters_dict == count_letters(word):
             anagrams.append(word.lower())
     return anagrams if anagrams else ["No single word anagrams found"]        
 
