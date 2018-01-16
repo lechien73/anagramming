@@ -28,7 +28,7 @@ def anagram(a, b):
                 anagrams.append(word.lower())
         return anagrams if anagrams else ["No single word anagrams found"]        
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+alphabet = set("abcdefghijklmnopqrstuvwxyz")
 
 mydict = get_dictionary('words.txt')
 
